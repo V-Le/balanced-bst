@@ -19,3 +19,36 @@
 //     }
 //   };
 
+class Node {
+    constructor (data) {
+        this.data = data;
+        this.left = null;
+        this.right = null;
+    }
+}
+
+class Tree {
+    constructor(array) {
+        this.array = array;
+        this.root = buildTree();
+    }
+}
+
+function sortUndupe(array) {
+    let sortedArray = array.sort((a,b) => a-b); //sorts array
+    return [...new Set (sortedArray)]; //removes dupes and returns
+}
+
+function buildTree(array, start, end) {
+    if (start > end) return null;
+
+    let mid = parseInt((start + end) / 2);
+    let node = new Node(array[mid]);
+    node.left = buildTree(arr, 0, mid-1);
+    node.right = buildTree(arr, mid+1, end);
+
+}
+
+let myArray = sortUndupe([1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324]);
+console.log(myArray);
+// console.log(buildTree(myArray, 0, myArray.length))
