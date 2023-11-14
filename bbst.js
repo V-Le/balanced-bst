@@ -40,7 +40,11 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
 };
 
 let myArray = new Tree([1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324]);
+console.log(myArray.root)
 prettyPrint(myArray.root);
+
+let myArray2 = new Tree([10, 20, 30, 40, 100, 500]);
+prettyPrint(myArray2.root);
 
 
 // │           ┌── 6345
