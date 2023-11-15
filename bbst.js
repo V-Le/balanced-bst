@@ -29,6 +29,20 @@ class Tree {
         
         return node;
     }
+
+    insert(data, root=this.root) {
+        if (root === null) {
+            return new Node(data);
+        }
+        if(root.data < data) {
+            root.right = this.insert(data, root.right)
+        } else {
+            root.left = this.insert(data, root.left);
+        }
+        return root;
+
+    }
+
 }
 
 
@@ -46,6 +60,8 @@ prettyPrint(myArray.root);
 let myArray2 = new Tree([10, 20, 30, 40, 100, 500]);
 prettyPrint(myArray2.root);
 
+myArray2.insert(5)
+prettyPrint(myArray2.root);
 
 // │           ┌── 6345
 // │       ┌── 324
